@@ -1,0 +1,24 @@
+{
+  "name": "topicgym",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TopicGym v1.0 · aplicación web de apoyo al aprendizaje de Lógica de Programación",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "npm --prefix backend test",
+    "seed": "npm --prefix backend run seed",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend start",
+    "build": "npm --prefix frontend run build",
+    "audit": "npm --prefix backend audit && npm --prefix frontend audit"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-security": "^3.0.1",
+    "globals": "^16.5.0",
+    "typescript-eslint": "^8.46.4"
+  }
+}
