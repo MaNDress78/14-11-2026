@@ -32,7 +32,7 @@ export default tseslint.config(
   js.configs.recommended,
   ...tsRecomendado,
   {
-    files: ['backend/**/*.js', '*.js'],
+    files: ['backend/**/*.js', 'tests/**/*.js', '*.js'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'commonjs',

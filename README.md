@@ -110,10 +110,11 @@ curl http://localhost:3000/api/health
 Desde la raíz del repositorio:
 
 ```bash
-npm test          # pruebas unitarias del backend
-npm run lint      # ESLint con reglas de seguridad
-npm run audit     # npm audit en backend y frontend
-npm run build     # compila el frontend (TypeScript + Angular)
+npm test              # node:test del backend + suite de la semana 7
+npm run test:semana7  # solo la suite de reglas de negocio en tests/
+npm run lint          # ESLint con reglas de seguridad
+npm run audit         # npm audit en backend y frontend
+npm run build         # compila el frontend (TypeScript + Angular)
 ```
 
 Con la base de datos sembrada y el backend en ejecución:
@@ -146,6 +147,9 @@ TopicGym_V.1.0/
 │   ├── test/              # pruebas unitarias (node:test)
 │   ├── seed.js
 │   └── .env.example
+├── tests/                 # suite de la semana 7 con node:test
+├── registro_pruebas.md    # reglas, tablas de casos y revisión de la IA
+├── bitacora_ia.md
 ├── database/
 │   ├── schema.sql
 │   ├── seed.sql

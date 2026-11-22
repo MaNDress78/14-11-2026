@@ -2,7 +2,7 @@
 
 Proyecto: TopicGym V.1.0  
 Estudiantes: Michael Ramos Betancourt, Eduardo Tovar Roa, Óscar Pérez y José David García Calderón  
-Asistente usado: OpenCode en modo agente (modelos Big Pickle, Claude Sonnet y DeepSeek), con el prompt de revisión de la semana 6.
+Asistente usado: OpenCode en modo agente (modelos Big Pickle, Claude Sonnet y DeepSeek), con los prompts de revisión de la semana 6 y de pruebas de la semana 7.
 
 ## Entradas de la semana 6
 
@@ -52,13 +52,40 @@ Asistente usado: OpenCode en modo agente (modelos Big Pickle, Claude Sonnet y De
 - **Verificación:** Comparé la copia con la carpeta original y solo había cambios en documentación y comentarios JSDoc; no se tocó lógica ni pruebas. Después de integrar se repitieron `npm run lint`, `npm test` y `npm run build` con resultado correcto.
 - **Cambio local:** documentación y docstrings integrados en la carpeta del proyecto.
 
+## Entradas de la semana 7
+
+### Entrada 1 — Diseño de casos con IA
+
+- **Fecha:** 2026-11-22
+- **Prompt o sugerencia:** «Toma las reglas documentadas de `calcularRacha`, `calcularRachaMaxima`, `toISODate`, `cumpleCondicion` y del esquema de registro. Propón casos con particiones de equivalencia, valores límite y una tabla de decisión para `cumpleCondicion`. No escribas pruebas todavía y no ejecutes el código para sacar los esperados».
+- **Decisión:** Aceptada con cambios
+- **Por qué:** La propuesta sirvió para ordenar los bordes (100 puntos, 99 y 101; ayer y anteayer; 8 y 7 caracteres de contraseña), pero incluía `normalizarNivel`, que no está exportado por `ejercicios.service.js`, y dejaba sin resolver tres ambigüedades: duplicados en la racha, fechas futuras y el papel de `valor` en `tema_perfecto`.
+- **Verificación:** Contrasté cada regla con el docstring correspondiente y con `database/migrations/005_nuevos_logros.sql`. Escribí las decisiones sobre las ambigüedades en `registro_pruebas.md` y sustituí `normalizarNivel` por `toISODate`, que sí está expuesta. La tabla de decisión quedó con diez reglas y las condiciones irrelevantes marcadas como «—».
+
+### Entrada 2 — Generación y revisión de la suite con `node:test`
+
+- **Fecha:** 2026-11-22
+- **Prompt o sugerencia:** «Escribe pruebas con `node:test` en la carpeta `tests`, usando el mismo lenguaje del repositorio. Para cada regla usa un array de casos con un comentario por fila, `assert.strictEqual`/`deepStrictEqual` con esperados fijos y `assert.throws` con el tipo y mensaje exactos. No modifiques el código de producción. Luego aplica las tres preguntas de revisión: ¿el esperado sale de la regla?, ¿fallaría si rompo el código?, ¿es redundante?».
+- **Decisión:** Aceptada con cambios
+- **Por qué:** El borrador tenía dos defectos reales: un `assert.ok(...)` que no comprobaba nada concreto y un esperado `false` para 100 puntos con umbral 100, sacado de una ejecución anterior en vez de la regla `>= 100`. La IA propuso además `pytest`, lo cual habría cambiado el lenguaje de la entrega; se descartó y se mantuvo JavaScript, importando directamente los módulos originales desde `tests/reglas_negocio.test.js`.
+- **Verificación:** Corregí los dos casos, descarté un caso redundante y uno con esperado inventado sobre el teléfono, y anoté las cinco decisiones en la sección 2 de `registro_pruebas.md`. Ejecuté `node --test tests/*.test.js`: 66/66 pasan. Después introduje tres errores a propósito (`>=` por `>`, `racha += 0` y `.min(8)` por `.min(9)`): fallaron 3, 7 y 6 pruebas respectivamente; restauré cada archivo con `git restore` y la suite volvió a 66/66. El código de producción quedó sin cambios.
+
+### Entrada 3 — Generación de datos sintéticos
+
+- **Fecha:** 2026-11-22
+- **Prompt o sugerencia:** «Genera datos de prueba sintéticos con contexto local colombiano, sin personas reales, con teléfonos ficticios y casos difíciles: tildes, ñ, apóstrofo, texto vacío y valores en cero. Entrégalos como una función fixture en JavaScript y dime dónde se usan».
+- **Decisión:** Aceptada
+- **Por qué:** Los datos permiten comprobar que la normalización del registro y el evaluador de logros no se rompen con caracteres propios del español ni con campos vacíos o en cero.
+- **Verificación:** Revisé que el nombre, el correo y el teléfono fueran inventados (`+57 300 000 0001`, `@ejemplo.edu.co`) y confirmé que el fixture `datosSinteticos()` se usa en tres pruebas: la racha, el registro y la inmunidad del evaluador a metadatos extra. La suite sigue en 66/66.
+
 ## Resumen
 
 | Decisión | Cantidad |
 |---|---|
-| Aceptadas | 3 |
-| Aceptadas con cambios | 2 |
-| Rechazadas | 2 (inyección SQL y avisos masivos de object-injection, ambos falsos positivos) |
+| Aceptadas (semanas 6 y 7) | 4 |
+| Aceptadas con cambios | 4 |
+| Rechazadas | 2 (inyección SQL y avisos masivos de object-injection, ambos falsos positivos de la semana 6) |
+| Pruebas de IA descartadas en la semana 7 | 2 (función no exportada y esperado inventado sobre el teléfono) |
 
 ## Reflexión final
 
