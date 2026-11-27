@@ -156,7 +156,8 @@ TopicGym_V.1.0/
 │   ├── modulo1_propuesta.md
 │   ├── modulo2_entrevista.md
 │   ├── semana3/           # documento de requisitos de la semana 3
-│   └── semana4/           # documento de diseño (DOCX, PDF) y fuentes Mermaid
+│   ├── semana4/           # documento de diseño (DOCX, PDF) y fuentes Mermaid
+│   └── semana8/           # diapositivas de la sustentación (PDF y PPTX)
 ├── database/
 │   ├── schema.sql
 │   ├── seed.sql
@@ -190,6 +191,7 @@ Los documentos de cada módulo están en el repositorio:
 | Semana 6. Revisión de seguridad | [`revision_seguridad.md`](revision_seguridad.md) |
 | Semana 7. Registro de pruebas | [`registro_pruebas.md`](registro_pruebas.md) |
 | Cierre. Informe final | [`informe_final.md`](informe_final.md) · [PDF](informe_final.pdf) |
+| Cierre. Sustentación (8 diapositivas) | [`documentos/semana8/TopicGym_sustentacion_informe_final.pdf`](documentos/semana8/TopicGym_sustentacion_informe_final.pdf) · [PPTX](documentos/semana8/TopicGym_sustentacion_informe_final.pptx) |
 
 El índice completo de documentos está en [`documentos/README.md`](documentos/README.md).
 

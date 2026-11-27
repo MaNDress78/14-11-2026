@@ -14,6 +14,7 @@ enlace directo y su evidencia en el repositorio.
 | 6. Seguridad (semana 6) | [`revision_seguridad.md`](../revision_seguridad.md) | Markdown | Informe de revisión de código y seguridad: hallazgos, severidad, corrección y estado |
 | Todas | [`bitacora_ia.md`](../bitacora_ia.md) | Markdown | Bitácora de uso de IA de las semanas 6, 7 y 8: prompts, decisiones, verificaciones y correcciones |
 | Cierre | [`informe_final.md`](../informe_final.md) · [PDF](../informe_final.pdf) | Markdown y PDF | Informe final del proyecto integrador: resumen, problema y usuario, IA en el ciclo de vida, casos de error de la IA, estado final, reflexión ética y legal, aprendizajes y anexos |
+| Cierre · sustentación | [`semana8/TopicGym_sustentacion_informe_final.pdf`](semana8/TopicGym_sustentacion_informe_final.pdf) · [PowerPoint](semana8/TopicGym_sustentacion_informe_final.pptx) | PDF y PPTX | Las 8 diapositivas de la sustentación ante el grupo, con notas del expositor en el PPTX |
 
 ## Documentos técnicos del repositorio
 

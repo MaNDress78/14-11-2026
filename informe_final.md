@@ -112,5 +112,6 @@ Si tuviera que empezar de nuevo, dedicaría la primera hora a juntar todos los e
 - Bitácora de uso de IA: [`bitacora_ia.md`](bitacora_ia.md) (entradas de las semanas 6, 7 y 8).
 - Revisión de seguridad: [`revision_seguridad.md`](revision_seguridad.md).
 - Registro de pruebas: [`registro_pruebas.md`](registro_pruebas.md).
+- Diapositivas de la sustentación: [`documentos/semana8/TopicGym_sustentacion_informe_final.pdf`](documentos/semana8/TopicGym_sustentacion_informe_final.pdf) · [PowerPoint con notas del expositor](documentos/semana8/TopicGym_sustentacion_informe_final.pptx).
 - Instrucciones de instalación y uso: [`README.md`](README.md).
 - Evidencia por commit: [`4fb7af1`](https://github.com/MaNDress78/14-11-2026/commit/4fb7af1) (código y correcciones de seguridad) · [`2622475`](https://github.com/MaNDress78/14-11-2026/commit/2622475) (suite de pruebas de la semana 7) · [`bbcca93`](https://github.com/MaNDress78/14-11-2026/commit/bbcca93) (documento de diseño, bitácora de la semana 8 y autoría).
