@@ -1,7 +1,7 @@
 # Registro de pruebas: tabla de casos y revisión de las pruebas de IA
 
 Proyecto: TopicGym V.1.0  
-Estudiantes: Michael Ramos Betancourt, Eduardo Tovar Roa, Óscar Pérez y José David García Calderón  
+Estudiantes: Michael Ramos Betancourt  
 Fecha: 2026-11-22  
 Repositorio: https://github.com/MaNDress78/14-11-2026.git
 

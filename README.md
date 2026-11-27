@@ -150,6 +150,9 @@ TopicGym_V.1.0/
 ├── tests/                 # suite de la semana 7 con node:test
 ├── registro_pruebas.md    # reglas, tablas de casos y revisión de la IA
 ├── bitacora_ia.md
+├── informe_final.md       # informe final del proyecto integrador
+├── documentos/
+│   └── semana4/           # documento de diseño (DOCX, PDF) y fuentes Mermaid
 ├── database/
 │   ├── schema.sql
 │   ├── seed.sql
@@ -168,12 +171,22 @@ TopicGym_V.1.0/
 
 ## 7. Uso de IA
 
-El proyecto se desarrolló con apoyo de OpenCode en modo agente (modelos Big Pickle, Claude Sonnet y DeepSeek). La IA se usó para proponer código, ejecutar pruebas, revisar seguridad y redactar borradores de documentación.
+El proyecto se desarrolló con apoyo de OpenCode en modo agente. La IA se usó para proponer código, ejecutar pruebas, revisar seguridad, diseñar la arquitectura y redactar borradores de documentación.
 
 Cada hallazgo de la revisión de la semana 6 se verificó contra el código antes de corregirlo; los falsos positivos y las decisiones se registran en [`revision_seguridad.md`](revision_seguridad.md) y el detalle de prompts, aceptaciones y verificaciones está en [`bitacora_ia.md`](bitacora_ia.md). Ninguna prueba existente se modificó para que pasara: las correcciones de comportamiento incluyen pruebas nuevas o ajustes de los scripts E2E.
 
+Los documentos de cada módulo están en el repositorio:
+
+| Entrega | Archivo |
+|---|---|
+| Semana 3. Requisitos y bitácora de prompts | [`documentos/semana3/Ramos_Betancourt_S3_Requisitos.docx`](documentos/semana3/Ramos_Betancourt_S3_Requisitos.docx) (la bitácora de esa semana es su Anexo) |
+| Semana 4. Documento de diseño y ADR | [`documentos/semana4/Ramos_Michael_S4_Diseno.pdf`](documentos/semana4/Ramos_Michael_S4_Diseno.pdf) · [fuentes Mermaid](documentos/semana4/fuentes_mermaid/) |
+| Semana 6. Revisión de seguridad | [`revision_seguridad.md`](revision_seguridad.md) |
+| Semana 7. Registro de pruebas | [`registro_pruebas.md`](registro_pruebas.md) |
+| Cierre. Informe final | [`informe_final.md`](informe_final.md) |
+
 ## 8. Autor y licencia
 
-Equipo TopicGym: Michael Ramos Betancourt, Eduardo Tovar Roa, Óscar Pérez y José David García Calderón.
+Equipo TopicGym: Michael Ramos Betancourt.
 
 Proyecto académico del seminario de Lógica de Programación. Licencia MIT: se permite usar, copiar, modificar y distribuir el código conservando este aviso.

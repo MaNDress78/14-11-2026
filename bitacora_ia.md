@@ -1,8 +1,8 @@
 # Bitácora de uso de IA
 
 Proyecto: TopicGym V.1.0  
-Estudiantes: Michael Ramos Betancourt, Eduardo Tovar Roa, Óscar Pérez y José David García Calderón  
-Asistente usado: OpenCode en modo agente (modelos Big Pickle, Claude Sonnet y DeepSeek), con los prompts de revisión de la semana 6 y de pruebas de la semana 7.
+Estudiantes: Michael Ramos Betancourt  
+Asistente usado: OpenCode en modo agente. En las semanas 6 y 7 se usaron los modelos Big Pickle, Claude Sonnet y DeepSeek (revisión de seguridad y suite de pruebas); en las semanas de diseño y de informe final el mismo asistente en modo agente, con acceso de lectura al repositorio y a los entregables de las semanas 3, 6 y 7.
 
 ## Entradas de la semana 6
 
@@ -78,15 +78,57 @@ Asistente usado: OpenCode en modo agente (modelos Big Pickle, Claude Sonnet y De
 - **Por qué:** Los datos permiten comprobar que la normalización del registro y el evaluador de logros no se rompen con caracteres propios del español ni con campos vacíos o en cero.
 - **Verificación:** Revisé que el nombre, el correo y el teléfono fueran inventados (`+57 300 000 0001`, `@ejemplo.edu.co`) y confirmé que el fixture `datosSinteticos()` se usa en tres pruebas: la racha, el registro y la inmunidad del evaluador a metadatos extra. La suite sigue en 66/66.
 
+## Entradas de esta semana (2026-11-27)
+
+### Entrada 1 — Diseño de la arquitectura con apoyo de IA
+
+- **Fecha:** 2026-11-27
+- **Prompt o sugerencia:** «Actúa como arquitecto de software. Estoy diseñando el proyecto final del seminario, una plataforma web de práctica de Lógica de Programación llamada TopicGym. Lee el repositorio y, con base en lo que existe realmente en el código, propón tres alternativas de arquitectura, describe cada una en un párrafo y redacta un ADR con título, estado, contexto, decisión, alternativas descartadas, consecuencias positivas y negativas y uso de IA. No inventes requisitos que no estén en el repositorio y no propongas microservicios ni cachés que el proyecto no usa.»
+- **Decisión:** Aceptada con cambios
+- **Por qué:** la IA entregó el esqueleto de la entrega (las tres alternativas, la matriz ponderada, los dos diagramas C4, el modelo entidad-relación, la tabla de endpoints y el ADR), pero lo apoyó en un registro de requisitos que ella misma reconstruyó. Descarté su propuesta de separar el motor de logros en un microservicio y de añadir Redis, porque no existen en el código y contradicen el ADR-001. Cuando localicé el documento de requisitos de la semana 3 (`Ramos_Betancourt_S3_Requisitos.docx`, carpeta de entregas), rehice todo el documento sobre las identificadores reales: N-01 a N-10 con su cita, HU-01 a HU-10 con su prioridad MoSCoW y RNF-01 a RNF-06 con su característica ISO/IEC 25010.
+- **Verificación:** contrasté cada tabla contra el esquema (`database/schema.sql` y las migraciones 001 a 007), contra las dependencias declaradas (`backend/package.json`) y contra las rutas reales (`backend/src/routes`). Revisé que cada historia citada en el documento de diseño exista en la matriz de trazabilidad de la semana 3.
+- **Cambio local:** documento de diseño en `documentos/semana4/` con las siete secciones, ADR-001, ADR-002, diagramas C4 con su código Mermaid, modelo de datos y registro de prompts.
+- **Lo que la IA no encontró:** el documento de requisitos de la semana 3 no está dentro del repositorio, así que no podía saber que existía; el error se hizo visible al cotejar los identificadores HU-01 a HU-10 del borrador con los del documento real.
+
+### Entrada 2 — Corrección de la trazabilidad de las historias
+
+- **Fecha:** 2026-11-27
+- **Prompt o sugerencia:** «Revisa el documento de diseño y comprueba que cada HU-xx, RNF-xx y N-xx que se cita existe en el documento de requisitos de la semana 3 y que se le asigna a la historia correcta. Devuelve una tabla con la cita, el identificador y el veredicto.»
+- **Decisión:** Aceptada
+- **Por qué:** la revisión encontró un error real en la sección 3.1: el borrador atribuía el panel docente a HU-07 y HU-08, cuando con la numeración real el panel docente es HU-06 (código de clase y vinculación) y HU-07 (detalle del alumno), y HU-08 es el envío de pseudocódigo. El error venía de arrastrar la numeración del primer borrador, escrito antes de encontrar el documento de la semana 3.
+- **Verificación:** comparé una por una las dieciocho referencias a historias de la tabla de API y las de la prosa con la matriz de trazabilidad del Anexo del documento de requisitos. Después de la corrección, las diez historias aparecen con su historia de origen y ninguna referencia apunta a una historia ajena.
+- **Cambio local:** corrección en la sección 3.1 y verificación de las dieciocho filas de la tabla de API.
+
+### Entrada 3 — Humanización del documento de diseño
+
+- **Fecha:** 2026-11-27
+- **Prompt o sugerencia:** «Revisa el texto del documento de diseño y reescríbelo para que suene a persona y no a plantilla: elimina los contrastes vacíos del tipo «no X sino Y», los guiones largos usados como conector, las tríadas forzadas, las palabras infladas y la negrita decorativa. No cambies ninguna cifra, cita, ruta de archivo ni identificador de requisito, y no toques los bloques de código.»
+- **Decisión:** Aceptada con cambios
+- **Por qué:** el borrador usaba muletillas («además» ocho veces, «el punto de inflection» en inglés, «el activo más valioso del proyecto») y cerraba párrafos con frases que repetían lo recién dicho. Se conservaron las cuatro etiquetas en negrita del resumen de uso de IA porque reproducen los cuatro puntos que pide la rúbrica.
+- **Verificación:** leí el texto completo ya renderizado y comparé el resultado con el original, sección por sección; comprobé con una búsqueda que no quedara ningún guion largo, ningún contraste vacío ni palabras en inglés, y que las cifras de la matriz (126, 106, 102 sobre 140), las diez HU, los seis RNF y las diez N siguieran presentes.
+- **Cambio local:** reescritura de la prosa en las secciones 1 a 7 y en los anexos; los bloques de código y las tablas de datos quedaron intactos.
+
+### Entrada 4 — Reconstrucción del informe final
+
+- **Fecha:** 2026-11-27
+- **Prompt o sugerencia:** «Lee la plantilla `informe_final_integrador.md` y el repositorio, y redacta el informe final: resumen del problema y del usuario, tabla de la IA en el ciclo de vida con un enlace a la evidencia de cada módulo, tres casos concretos de error de la IA en fases distintas, estado final del sistema, reflexión ética y legal, aprendizajes y anexos. Cada afirmación debe apuntar a un archivo o a un commit del repositorio, y el texto debe sostener lo que afirma sin adornos.»
+- **Decisión:** Aceptada con cambios
+- **Por qué:** la IA propone la estructura del informe y los enlaces a la evidencia, pero escribe en pasado impersonal y deja los casos de error de la IA contados en lugar de explicados. Reescribí los tres casos con qué se detectaron y qué se hizo, y completé la sección 6 con los principios de la Ley 1581 de 2012 aplicados al proyecto.
+- **Verificación:** cada enlace del informe apunta a un archivo que existe en el repositorio o a un commit existente, y las cifras del informe se contrastaron con `registro_pruebas.md`, `revision_seguridad.md` y el propio código.
+- **Cambio local:** `informe_final.md` en la raíz del repositorio.
+
 ## Resumen
 
 | Decisión | Cantidad |
 |---|---|
 | Aceptadas (semanas 6 y 7) | 4 |
-| Aceptadas con cambios | 4 |
-| Rechazadas | 2 (inyección SQL y avisos masivos de object-injection, ambos falsos positivos de la semana 6) |
+| Aceptadas con cambios (semanas 6 y 7) | 4 |
+| Aceptadas (esta semana) | 1 |
+| Aceptadas con cambios (esta semana) | 3 |
+| Rechazadas | 3 (inyección SQL y avisos masivos de object-injection en la semana 6; el registro de requisitos reconstruido en esta semana) |
 | Pruebas de IA descartadas en la semana 7 | 2 (función no exportada y esperado inventado sobre el teléfono) |
+| Elementos inventados por la IA y corregidos en esta semana | 2 (registro de requisitos reconstruido y trazabilidad de HU-07/HU-08) |
 
 ## Reflexión final
 
-La revisión con IA sirvió sobre todo para ordenar los riesgos y proponer correcciones concretas, pero no sustituyó la verificación: dos de sus avisos eran falsos positivos y dos problemas reales (contraseñas hardcodeadas en scripts y migraciones incompletas del seed) solo aparecieron al ejecutar las pruebas en una base limpia. Aprendí que una corrección de seguridad debe venir con una prueba de abuso y con el efecto medido en el flujo normal; por eso el registro de docentes y la condición de carrera se validaron con E2E además de la revisión manual. Para la próxima semana mantendré la costumbre de trabajar las correcciones en copias separadas, revisar los cambios antes de integrar y anotar en la bitácora tanto lo aceptado como lo descartado.
+La revisión con IA sirvió sobre todo para ordenar los riesgos y proponer correcciones concretas, pero no sustituyó la verificación: dos de sus avisos eran falsos positivos y dos problemas reales (contraseñas hardcodeadas en scripts y migraciones incompletas del seed) solo aparecieron al ejecutar las pruebas en una base limpia. Aprendí que una corrección de seguridad debe venir con una prueba de abuso y con el efecto medido en el flujo normal; por eso el registro de docentes y la condición de carrera se validaron con E2E además de la revisión manual. Esta semana el mismo patrón se repitió en el diseño: la IA construyó el documento sobre un registro de requisitos inventado porque el documento de la semana 3 no estaba en el repositorio, y el error solo apareció al cotejar los identificadores HU-01 a HU-10 contra el original. La lección es que hay que leer primero las entradas anteriores del proyecto y después dejar que la IA proponga, al revés de lo que hice. Para la próxima semana mantendré la costumbre de trabajar las correcciones en copias separadas, revisar los cambios antes de integrar y anotar en la bitácora tanto lo aceptado como lo descartado.

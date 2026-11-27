@@ -1,0 +1,21 @@
+C4Container
+title TopicGym - Diagrama de contenedores
+
+Person(estudiante, "Estudiante", "Estudiante de primer semestre")
+Person(docente, "Docente", "Docente con codigos de clase")
+
+System_Ext(correo, "Servidor SMTP", "Envia el correo de verificacion")
+System_Ext(youtube, "YouTube", "Aloja los videos de apoyo por tema")
+
+System_Boundary(tg, "TopicGym") {
+  Container(spa, "SPA Angular", "Angular 22 / TypeScript 6", "Catalogo, ejercicios, progreso y logros")
+  Container(api, "API REST", "Node.js 20 / Express 4", "Autenticacion, catalogo, validacion y logros")
+  ContainerDb(db, "Base de datos", "PostgreSQL 16", "Usuarios, catalogo, ejercicios y respuestas")
+}
+
+Rel(estudiante, spa, "Estudia y resuelve ejercicios", "HTTPS")
+Rel(docente, spa, "Gestiona codigos y revisa el avance", "HTTPS")
+Rel(spa, api, "Consume la API con la cookie httpOnly", "JSON / HTTPS")
+Rel(api, db, "Lee y escribe con SQL parametrizado", "Transacciones")
+Rel(api, correo, "Envia el correo de verificacion", "SMTP")
+Rel(estudiante, youtube, "Abre el video de apoyo que le linkea la plataforma", "URL en el navegador")

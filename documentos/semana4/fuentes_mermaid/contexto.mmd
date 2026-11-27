@@ -1,0 +1,15 @@
+C4Context
+title TopicGym - Contexto de sistema
+
+Person(estudiante, "Estudiante", "Estudiante de primer semestre de ingenieria")
+Person(docente, "Docente", "Docente que vincula a su grupo y revisa el avance")
+
+System(topicgym, "TopicGym", "Plataforma de practica de Logica de Programacion")
+
+System_Ext(correo, "Servidor SMTP", "Envia el correo de verificacion de la cuenta")
+System_Ext(youtube, "YouTube", "Aloja los videos de apoyo gratuitos por tema")
+
+Rel(estudiante, topicgym, "Resuelve ejercicios y revisa su progreso y sus logros", "HTTPS / JSON")
+Rel(docente, topicgym, "Genera codigos de clase y revisa el avance de sus alumnos", "HTTPS / JSON")
+Rel(topicgym, correo, "Envia el token de verificacion", "SMTP")
+Rel(topicgym, youtube, "Enlaza al video de apoyo del tema en otra pestana", "URL publica, sin API")

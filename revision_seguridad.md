@@ -1,9 +1,9 @@
 # Informe de revisión de código y seguridad
 
 Proyecto: TopicGym V.1.0  
-Estudiantes: Michael Ramos Betancourt, Eduardo Tovar Roa, Óscar Pérez y José David García Calderón  
+Estudiantes: Michael Ramos Betancourt  
 Fecha: 2026-11-14  
-Commit revisado: No aplica (entrega local, sin repositorio Git)
+Commit revisado: `4fb7af1` (primer commit del repositorio, https://github.com/MaNDress78/14-11-2026.git)
 
 ## 1. Herramientas y criterios
 
