@@ -151,7 +151,11 @@ TopicGym_V.1.0/
 ├── registro_pruebas.md    # reglas, tablas de casos y revisión de la IA
 ├── bitacora_ia.md
 ├── informe_final.md       # informe final del proyecto integrador
-├── documentos/
+├── informe_final.pdf      # el mismo informe exportado a PDF
+├── documentos/            # entregables por módulo (índice en documentos/README.md)
+│   ├── modulo1_propuesta.md
+│   ├── modulo2_entrevista.md
+│   ├── semana3/           # documento de requisitos de la semana 3
 │   └── semana4/           # documento de diseño (DOCX, PDF) y fuentes Mermaid
 ├── database/
 │   ├── schema.sql
@@ -179,11 +183,15 @@ Los documentos de cada módulo están en el repositorio:
 
 | Entrega | Archivo |
 |---|---|
+| Módulo 1. Propuesta | [`documentos/modulo1_propuesta.md`](documentos/modulo1_propuesta.md) |
+| Módulo 2. Entrevista con las necesidades y su cita | [`documentos/modulo2_entrevista.md`](documentos/modulo2_entrevista.md) |
 | Semana 3. Requisitos y bitácora de prompts | [`documentos/semana3/Ramos_Betancourt_S3_Requisitos.docx`](documentos/semana3/Ramos_Betancourt_S3_Requisitos.docx) (la bitácora de esa semana es su Anexo) |
 | Semana 4. Documento de diseño y ADR | [`documentos/semana4/Ramos_Michael_S4_Diseno.pdf`](documentos/semana4/Ramos_Michael_S4_Diseno.pdf) · [fuentes Mermaid](documentos/semana4/fuentes_mermaid/) |
 | Semana 6. Revisión de seguridad | [`revision_seguridad.md`](revision_seguridad.md) |
 | Semana 7. Registro de pruebas | [`registro_pruebas.md`](registro_pruebas.md) |
-| Cierre. Informe final | [`informe_final.md`](informe_final.md) |
+| Cierre. Informe final | [`informe_final.md`](informe_final.md) · [PDF](informe_final.pdf) |
+
+El índice completo de documentos está en [`documentos/README.md`](documentos/README.md).
 
 ## 8. Autor y licencia
 
